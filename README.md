@@ -19,12 +19,12 @@ Laravel環境構築
 
 ## 使用技術(実行環境)
 
-・PHP 7.4.9
-・Laravel 8.83.29
-・MySQL 15.1
+・PHP 7.4.9 </br>
+・Laravel 8.83.29 </br>
+・MySQL 15.1 </br>
 
 ## ER図
-< - - - 作成したER図の画像 - - - >
+![ER図](./contact.png)
 
 ## URL
 ・開発環境：http://localhost/contact
