@@ -1,7 +1,7 @@
 # お問い合わせフォーム
 
 ## 環境構築
-- Dockerのビルド
+Dockerのビルド
 
 1. git clone git@github.com:kameda11/contact.git
 2. docker-compose up -d --build
@@ -24,8 +24,8 @@ Laravel環境構築
 ・MySQL 15.1 </br>
 
 ## ER図
-![ER図](./contact.png)
+![ER図](./contact.drawio.png)
 
 ## URL
-・開発環境：http://localhost/contact
-・phpMyAdmin:http://localhost:8080/
+・開発環境：http://localhost/contact </br>
+・phpMyAdmin:http://localhost:8080/ </br>
