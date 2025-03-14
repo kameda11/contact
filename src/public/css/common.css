@@ -1,45 +1,56 @@
 .header {
-    background: #000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 1512px;
+    height: 100px;
+    margin: 0 auto;
+    padding: 0 20px;
+    background-color: white;
+    border-bottom: 1px solid #8B7969;
 }
 
 .header__inner {
-    margin: 0 auto;
-    padding: 20px 15px;
-    max-width: 1230px;
-}
-
-.header-utilities {
+    width: 1509.01px;
+    height: 100px;
+    left: 2.99px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    position: relative;
 }
 
 .header__logo {
-    color: #fff;
+    font-size: 40px;
+    font-weight: 400px;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+    transform: translateY(-50%);
     text-decoration: none;
-    font-weight: bold;
-    font-size: 24px;
-}
-
-.header-utilities nav {
-    width: 18%;
+    font-family: "Inika", serif;
+    color: #8B7969;
 }
 
 .header-nav {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    gap: 15px;
+    list-style: none;
+    position: absolute;
+    right: 20px;
 }
 
-.header-nav__link {
-    color: #fff;
-    text-decoration: none;
-}
-
+.header-nav__link,
 .header-nav__button {
+    font-size: 14px;
+    text-decoration: none;
+    color: #333;
+    background: none;
     border: none;
-    background: transparent;
-    color: #fff;
-    font-size: 16px;
     cursor: pointer;
+}
+
+.header-nav__button:hover,
+.header-nav__link:hover {
+    text-decoration: underline;
 }
