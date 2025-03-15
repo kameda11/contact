@@ -1,125 +1,226 @@
-.contact-form__content {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    max-width: 800px;
-    margin: 0 auto;
+.contact-form {
+    background-color: #ffffff;
+    width: 1512px;
+    height: 982px;
+    font-family: "Inika", serif;
 }
 
 .contact-form__heading h2 {
-    color: #2c3e50;
-    border-bottom: 2px solid #3498db;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
+    text-align: center;
+    color: #8b7969;
+    font-weight: 400;
+    font-size: 35px;
+    width: 121px;
+    height: 46px;
+    margin: auto;
+    padding: 50px 0;
+    line-height: 100%;
+}
+
+.form {
+    font-family: "Inika", serif;
+    width: 972px;
+    height: 606px;
+    margin: auto;
+    color: #8b7969;
 }
 
 .form__group {
     margin-bottom: 20px;
+    display: flex;
+    width: 100%;
 }
 
 .form__group-title {
-    margin-bottom: 10px;
+    font-weight: 400;
+    font-size: 20px;
+    margin-bottom: 5px;
+    align-items: center;
+    gap: 20px;
+    width: 30%;
+    height: 26px;
+    padding: 0 auto;
+    font-family: "Inika", serif;
 }
 
-.form__label--item {
-    font-weight: bold;
+.form__group-content {
+    font-family: "Inika", serif;
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.form__last-name input,
+.form__first-name input,
+.form__email input,
+.form__phone input,
+.form__address input,
+.form__building input,
+.form__inquiry-type select,
+textarea  {
+    padding: 10px;
+    background-color: #f4f4f4;
+    border: none;
+    width: 70%;
+    font-family: "Inika", serif;
+}
+
+.form__last-name,
+.form__first-name {
+    display: flex;
+    min-width: 150px;
+    width: 287.15px;
+    height: 38px;
+}
+
+.form__last-name input,
+.form__first-name input {
+    width: 70%;
+    padding: 10px;
 }
 
 .form__label--required {
-    color: #e74c3c;
-    font-size: 0.8em;
+    color: red;
     margin-left: 5px;
+}
+
+.form__gender label {
+    padding-right: 40px;
+    font-size: 18px;
+}
+
+.radio-btn {
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 300px;
+    display: block;
+    margin: 0 auto;
+    width: 20px;
+    height: 20px;
+}
+
+.radio-btn:checked {
+    accent-color: #8b7969;
+    background-color: #8b7969;
+    border: #8b7969 1px solid;
+}
+
+.form__email,
+.form__address,
+.form__building {
+    width: 620px;
+    height: 38px;
+}
+
+.form__phone {
+    display: flex;
+}
+
+.form__phone span {
+    color: #8b7969;
+    font-family: "Inika", serif;
+    font-weight: 400;
+    font-size: 20px;
+    padding: 0 2%;
+}
+
+.form__phone input {
+    width: 178.12px;
+    height: 38px;
+    text-align: center;
 }
 
 input[type="text"],
 input[type="email"],
 input[type="tel"],
-select,
-textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 16px;
-}
-
-input[type="radio"] {
-    margin-right: 5px;
-}
-
+textarea,
 select {
-    height: 40px;
+    padding-left: 20px;
+    width: 100%;
+    background-color: #f4f4f4;
+    border: none;
+    color: #8b7969;
+    font-family: "Inika", serif;
 }
 
-textarea {
-    height: 100px;
-    resize: vertical;
+.form__inquiry-type {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+}
+
+.form__inquiry-type select {
+    appearance: none;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    background-color: #F4F4F4;
+    color: #BEB1A6;
+    cursor: pointer;
+    width: 331.68px;
+    height: 38px;
+    font-weight: 400;
+    font-size: 14px;
+    font-family: "Inika", serif;
+}
+
+.form__inquiry-type::after {
+    position: absolute;
+    right: 15px;
+    width: 30.71px;
+    height: 20px;
+    background-color: #d4b7b7;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    content: "";
+    pointer-events: none;
 }
 
 .form__error {
-    color: #e74c3c;
-    font-size: 0.9em;
+    color: red;
+    font-size: 0.9rem;
     margin-top: 5px;
+}
+
+.form__gender {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.form__phone {
+    display: flex;
+    gap: 5px;
+}
+
+textarea {
+    resize: vertical;
+    height: 129px;
+    width: 618.82px;
+    padding-top: 10px;
+}
+
+.form__detail {
+    font-weight: 400;
+    font-size: 14px;
 }
 
 .form__button {
     text-align: center;
-    margin-top: 30px;
+    margin-top: 40px;
 }
 
 .form__button-submit {
-    background-color: #3498db;
+    background-color: #82756A;
     color: #fff;
     border: none;
-    padding: 12px 30px;
-    font-size: 18px;
-    border-radius: 4px;
+    padding: 10px 40px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background 0.3s ease;
 }
 
 .form__button-submit:hover {
-    background-color: #2980b9;
-}
-
-/* エラーメッセージのスタイル */
-ul {
-    list-style-type: none;
-    padding: 0;
-    margin-bottom: 20px;
-    background-color: #f8d7da;
-    border: 1px solid #f5c6cb;
-    border-radius: 4px;
-    padding: 15px;
-    color: #721c24;
-}
-
-/* 電話番号入力欄のスタイル */
-.form__input--text input[type="tel"] {
-    width: 80px;
-    text-align: center;
-}
-
-.form__input--text span {
-    margin: 0 5px;
-}
-
-/* レスポンシブデザイン */
-@media (max-width: 768px) {
-    .contact-form__content {
-        padding: 20px;
-    }
-
-    input[type="text"],
-    input[type="email"],
-    input[type="tel"],
-    select,
-    textarea {
-        font-size: 14px;
-    }
-
-    .form__button-submit {
-        width: 100%;
-    }
+    background-color: #82756A;
 }

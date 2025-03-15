@@ -1,80 +1,52 @@
-.header {
-    background: #000;
+.contact-form {
+    background-color: #ffffff;
+    width: 1512px;
+    height: 982px;
+    font-family: "Inika", serif;
 }
 
-.header__inner {
-    margin: 0 auto;
-    padding: 20px 15px;
-    max-width: 1230px;
-}
-
-.header__logo {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 24px;
-}
-
-.confirm__content {
-    margin: 0 auto;
-    padding: 30px 15px;
-    max-width: 1230px;
-}
-
-.confirm__heading {
-    margin-bottom: 40px;
+.contact-form__heading h2 {
     text-align: center;
+    color: #8b7969;
+    font-weight: 400;
+    font-size: 35px;
+    width: 133px;
+    height: 43px;
+    margin: auto;
+    padding: 50px 0;
+    line-height: 100%;
 }
 
 .form {
+    width: 972px;
+    height: 606px;
     margin: 0 auto;
+}
+
+.form__group {
+    background-color: #BAA899;
+    display: flex;
+    border-bottom: 1px solid #ccc;
+    padding: 15px 0;
+}
+
+.form__group:last-child {
+    border-bottom: none;
+}
+
+.form__group-title {
+    width: 30%;
+    padding-right: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.form__group-content {
     width: 70%;
 }
 
-.confirm-table {
-    border: 1px solid #ddd;
+.form__group-content p {
+    margin: 0;
 }
 
-.confirm-table__inner {
-    width: 100%;
-}
-
-.confirm-table__header {
-    padding: 15px;
-    width: 20%;
-    border-bottom: 1px solid #ddd;
-    background-color: #eee;
-    font-weight: bold;
-}
-
-.confirm-table__text {
-    padding: 15px;
-    border-bottom: 1px solid #ddd;
-}
-
-.confirm-table__text input {
-    width: 100%;
-    outline: none;
-    border: none;
-}
-
-.confirm-table__row:last-child .confirm-table__header,
-.confirm-table__row:last-child .confirm-table__text {
-    border-bottom-width: 0;
-}
-
-.form__button {
-    margin-top: 30px;
-    text-align: center;
-}
-
-.form__button-submit {
-    padding: 10px;
-    width: 30%;
-    height: 50px;
-    border: none;
-    border-radius: 3px;
-    background: #000;
-    color: #fff;
-    cursor: pointer;
-}

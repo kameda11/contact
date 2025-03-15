@@ -1,3 +1,8 @@
+main {
+    margin-right: auto;
+    margin-left: auto;
+}
+
 .header {
     display: flex;
     justify-content: space-between;
@@ -6,8 +11,8 @@
     height: 100px;
     margin: 0 auto;
     padding: 0 20px;
-    background-color: white;
-    border-bottom: 1px solid #8B7969;
+    background-color: #ffffff;
+    border-bottom: 1px solid #8b7969;
 }
 
 .header__inner {
@@ -29,7 +34,7 @@
     transform: translateY(-50%);
     text-decoration: none;
     font-family: "Inika", serif;
-    color: #8B7969;
+    color: #8b7969;
 }
 
 .header-nav {
