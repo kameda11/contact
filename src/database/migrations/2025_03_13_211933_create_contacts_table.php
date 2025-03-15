@@ -26,7 +26,6 @@ class CreateContactsTable extends Migration
             $table->string('address');
             $table->string('building')->nullable();
             $table->enum('inquiry_type', ['1', '2', '3', '4', '5'])
-                ->default('選択してください')
                 ->comment('1:商品のお届けについて, 2:商品交換について, 3:商品トラブル, 4:ショップへのお問い合わせ, 5:その他');
             $table->string('detail');
             $table->timestamps();
