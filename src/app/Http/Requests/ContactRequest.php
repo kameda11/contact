@@ -32,7 +32,6 @@ class ContactRequest extends FormRequest
             'phone2' => ['required', 'max:5'],
             'phone3' => ['required', 'max:5'],
             'address' => ['required'],
-            'password' => ['nullable'],
             'inquiry_type' => ['required'],
             'detail' => ['required', 'max:120'],
         ];

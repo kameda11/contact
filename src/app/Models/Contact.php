@@ -9,6 +9,8 @@ class Contact extends Model
 {
     use HasFactory;
 
+    protected $table = 'contacts';
+
     protected $fillable = [
         'first_name',
         'last_name',
@@ -24,6 +26,11 @@ class Contact extends Model
     ];
 
     protected $hidden = [
-            'category_id',
+        'category_id',
     ];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }

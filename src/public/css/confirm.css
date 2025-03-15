@@ -19,15 +19,20 @@
 
 .form {
     width: 972px;
-    height: 606px;
+    height: 612.98px;
     margin: 0 auto;
 }
 
+.form__point {
+    border-top: #e0dfde 1px solid;
+    border-right: #e0dfde 1px solid;
+    border-left: #e0dfde 1px solid;
+    height: 606px;
+}
+
 .form__group {
-    background-color: #BAA899;
     display: flex;
-    border-bottom: 1px solid #ccc;
-    padding: 15px 0;
+    border-bottom: 1px solid #e0dfde;
 }
 
 .form__group:last-child {
@@ -35,18 +40,80 @@
 }
 
 .form__group-title {
-    width: 30%;
-    padding-right: 20px;
-    font-weight: bold;
+    padding-left: 30px;
+    color: #ffffff;
+    background-color: #baa899;
+    font-weight: 400;
+    font-size: 20px;
     display: flex;
     align-items: center;
+    width: 305px;
+    height: 69.92px;
+    font-family: "Inika", serif;
+}
+
+.form__group-title--detail {
+    padding-left: 30px;
+    color: #ffffff;
+    background-color: #baa899;
+    font-weight: 400;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    width: 305px;
+    font-family: "Inika", serif;
+    height: 116.54px;
 }
 
 .form__group-content {
+    color: #8b7969;
+    font-weight: 400;
+    font-size: 20px;
+    padding-left: 20px;
+    align-items: center;
     width: 70%;
+    font-family: "Inika", serif;
+    border-bottom: #e0dfde 1px solid;
+    border-right: #e0dfde 1px solid;
+    overflow-wrap: break-word;
 }
 
 .form__group-content p {
-    margin: 0;
+    align-items: center;
 }
 
+.form__button {
+    display: flex;
+    margin-top: 40px;
+    justify-content: center;
+    padding-left: 60px;
+}
+
+.form__button-submit,
+.form__button-back {
+    font-size: 20px;
+    font-family: "Inika", serif;
+    border: none;
+    cursor: pointer;
+    margin: 20px;
+}
+
+.form__button-submit {
+    background-color: #82756a;
+    color: #ffffff;
+    width: 120px;
+    height: 42px;
+}
+
+.form__button-back {
+    background-color: #ffffff;
+    color: #8b7969;
+    width: 40px;
+    height: 42px;
+    align-items: center;
+}
+
+.form__button-submit:hover,
+.form__button-back:hover {
+    opacity: 0.8;
+}

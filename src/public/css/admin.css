@@ -1,0 +1,91 @@
+.admin-page {
+    background-color: #ffffff;
+    width: 1512px;
+    height: 982px;
+    font-family: "Inika", serif;
+}
+
+.admin-page__heading h2 {
+    text-align: center;
+    color: #8b7969;
+    font-weight: 400;
+    font-size: 35px;
+    width: 121px;
+    height: 46px;
+    margin: auto;
+    padding: 50px 0;
+    line-height: 100%;
+}
+
+.search-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.search-form__group {
+    flex: 1 1 45%;
+    display: flex;
+    flex-direction: column;
+}
+
+.create-form__item-input,
+#search_gender,
+#search_inquiry_type,
+#created_at {
+    width: 100%;
+    padding: 10px 12px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    background-color: #fff;
+}
+
+.search-form__button {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 15px;
+}
+
+.search-form__button button {
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.search-form__button button:hover {
+    background-color: #45a049;
+}
+
+.result-list table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.result-list th, .result-list td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
+
+.result-list th {
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+.result-list tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.result-list tbody tr:hover {
+    background-color: #e6e6e6;
+}
