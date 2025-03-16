@@ -27,5 +27,5 @@ Laravel環境構築
 ![ER図](./contact.drawio.png)
 
 ## URL
-・開発環境：http://localhost/contact </br>
-・phpMyAdmin:http://localhost:8080/ </br>
+・開発環境: http://localhost/contact </br>
+・phpMyAdmin: http://localhost:8080/ </br>

@@ -20,72 +20,179 @@
 .search-form {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
     gap: 15px;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
+/* フォームグループ */
 .search-form__group {
-    flex: 1 1 45%;
-    display: flex;
-    flex-direction: column;
+    flex: 1 1 30%;
 }
 
+.search-form__group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* フォーム入力 */
 .create-form__item-input,
 #search_gender,
 #search_inquiry_type,
 #created_at {
     width: 100%;
-    padding: 10px 12px;
-    border: 2px solid #ddd;
-    border-radius: 6px;
-    background-color: #fff;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1rem;
 }
 
+/* ボタン */
 .search-form__button {
     display: flex;
+    justify-content: flex-start;
     gap: 10px;
-    justify-content: flex-end;
-    margin-top: 15px;
 }
 
-.search-form__button button {
-    background-color: #4CAF50;
+.search-form__button button,
+.search-form__button .btn-secondary {
+    padding: 10px 20px;
+    background-color: #007bff;
     color: #fff;
     border: none;
-    border-radius: 6px;
-    padding: 10px 20px;
+    border-radius: 4px;
     cursor: pointer;
-    transition: background 0.3s;
+    font-size: 1rem;
 }
 
-.search-form__button button:hover {
-    background-color: #45a049;
+.search-form__button button:hover,
+.search-form__button .btn-secondary:hover {
+    background-color: #0056b3;
 }
 
+.search-form__button .btn-secondary {
+    background-color: #6c757d;
+}
+
+.search-form__button .btn-secondary:hover {
+    background-color: #495057;
+}
+
+/* 結果一覧 */
 .result-list table {
     width: 100%;
     border-collapse: collapse;
-    background-color: #fff;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    overflow: hidden;
+    margin-top: 20px;
+    text-align: left;
 }
 
-.result-list th, .result-list td {
-    border: 1px solid #ddd;
+.result-list th,
+.result-list td {
     padding: 12px;
-    text-align: center;
+    border: 1px solid #ddd;
 }
 
 .result-list th {
-    background-color: #4CAF50;
+    background-color: #f8f9fa;
+    font-weight: bold;
+}
+
+.result-list td {
+    background-color: #fff;
+}
+
+.result-list td button {
+    padding: 5px 10px;
+    background-color: #17a2b8;
     color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
-.result-list tbody tr:nth-child(even) {
-    background-color: #f2f2f2;
+.result-list td button:hover {
+    background-color: #138496;
 }
 
-.result-list tbody tr:hover {
-    background-color: #e6e6e6;
+/* ページネーション */
+.pagination {
+    text-align: center;
+    margin-top: 20px;
+}
+
+svg.w-5.h-5 {
+    /*paginateメソッドの矢印の大きさ調整のために追加*/
+    width: 30px;
+    height: 30px;
+}
+
+/* カテゴリリスト */
+.categories {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.categories div {
+    margin-bottom: 10px;
+}
+
+/* エクスポートボタン */
+.btn-primary {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+/* モーダル全体のスタイル */
+.modal {
+    display: none; /* 初期状態で非表示 */
+    position: fixed; /* 固定配置 */
+    top: 0;
+    left: 0;
+    width: 100%; /* 画面全体 */
+    height: 100%; /* 画面全体 */
+    background-color: rgba(0, 0, 0, 0.5); /* 背景を半透明に */
+    z-index: 9999; /* 最前面に表示 */
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* モーダル外のスクロールを隠す */
+}
+
+/* モーダルが表示されている時のスタイル */
+.modal.show {
+    display: flex; /* モーダルが表示されるときはflexに変更 */
+}
+
+/* モーダルコンテンツのスタイル */
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 50%;
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* モーダルの閉じるボタン */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
 }

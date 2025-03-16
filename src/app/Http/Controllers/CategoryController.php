@@ -14,13 +14,33 @@ class CategoryController extends Controller
         $query = Contact::query();
 
         if ($request->filled('content')) {
-            $query->where('first_name', 'like', '%' . $request->content . '%')
-                ->orWhere('last_name', 'like', '%' . $request->content . '%')
-                ->orWhere('email', 'like', '%' . $request->content . '%');
+            $query->where(function ($q) use ($request) {
+                $q->where('first_name', $request->content)
+                    ->orWhere('last_name', $request->content)
+                    ->orWhere('email', $request->content)
+                    ->orWhere('first_name', 'like', '%' . $request->content . '%')
+                    ->orWhere('last_name', 'like', '%' . $request->content . '%')
+                    ->orWhere('email', 'like', '%' . $request->content . '%');
+            });
         }
 
         if ($request->filled('search_gender')) {
-            $query->where('gender', $request->search_gender);
+            $genderValue = null;
+            switch ($request->search_gender) {
+                case 'man':
+                    $genderValue = '1';
+                    break;
+                case 'woman':
+                    $genderValue = '2';
+                    break;
+                case 'others':
+                    $genderValue = '3';
+                    break;
+            }
+
+            if ($genderValue) {
+                $query->where('gender', $genderValue);
+            }
         }
 
         if ($request->filled('search_inquiry_type')) {
@@ -31,9 +51,10 @@ class CategoryController extends Controller
             $query->whereDate('created_at', $request->created_at);
         }
 
-        $contacts = $query->get();
+        $contacts = $query->paginate(7);
         $categories = Category::all();
 
         return view('admin', compact('contacts', 'categories'));
     }
+
 }
