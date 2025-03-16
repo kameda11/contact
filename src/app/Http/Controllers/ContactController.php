@@ -39,7 +39,6 @@ class ContactController extends Controller
             'detail' => 'required|max:120',
         ]);
 
-        // ビューへデータを渡す
         return view('confirm', $validatedData);
     }
 

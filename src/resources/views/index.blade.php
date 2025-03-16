@@ -5,6 +5,15 @@
 @endsection
 
 @section('content')
+@if ($errors->any())
+<div class="alert alert-danger">
+    <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
 <div class="contact-form">
     <div class="contact-form__heading">
         <h2>Contact</h2>
@@ -60,7 +69,7 @@
             </div>
             <div class="form__group-content">
                 <div class="form__email">
-                    <input type="email" name="email" value="{{ old('email') }}" placeholder="例: test@example.com" required/>
+                    <input type="email" name="email" value="{{ old('email') }}" placeholder="例: test@example.com" required />
                 </div>
                 <div class="form__error">
                     @if ($errors->has('email'))

@@ -9,41 +9,37 @@
     <div class="admin-page__heading">
         <h2>Admin</h2>
     </div>
-
-    <form class="search-form" method="get" action="{{ route('admin') }}">
-        @csrf
-        <div class="search-form__group">
-            <div class="create-form__item">
-                <input class="create-form__item-input" type="text" name="content" value="{{ request('content') }}" placeholder="名前やメールアドレスを入力してください" />
-            </div>
+    <div class="search-form">
+        <form method="get" action="{{ route('admin') }}">
+            @csrf
             <div class="search-form__group">
-                <label for="search_gender">性別</label>
-                <select name="search_gender" id="search_gender">
-                    <option value="" selected>すべて</option>
-                    <option value="man" {{ request('search_gender') === 'man' ? 'selected' : '' }}>男性</option>
-                    <option value="woman" {{ request('search_gender') === 'woman' ? 'selected' : '' }}>女性</option>
-                    <option value="others" {{ request('search_gender') === 'others' ? 'selected' : '' }}>その他</option>
-                </select>
-            </div>
-        </div>
-
-        <div class="search-form__group">
-            <select name="search_inquiry_type" id="search_inquiry_type">
-                <option value="" disabled selected>お問い合わせの種類 </option>
-                <option value="1" {{ request('search_inquiry_type') == '1' ? 'selected' : '' }}>商品のお届けについて</option>
-                <option value="2" {{ request('search_inquiry_type') == '2' ? 'selected' : '' }}>商品交換について</option>
-                <option value="3" {{ request('search_inquiry_type') == '3' ? 'selected' : '' }}>商品トラブル</option>
-                <option value="4" {{ request('search_inquiry_type') == '4' ? 'selected' : '' }}>ショップへのお問い合わせ</option>
-                <option value="5" {{ request('search_inquiry_type') == '5' ? 'selected' : '' }}>その他</option>
-        </div>
-
-        <input type="date" id="created_at" name="created_at" value="{{ request('created_at') }}" placeholder=年/月/日 />
-
-        <div class="search-form__button">
-            <button type="submit">検索</button>
-            <a href="{{ route('admin') }}" class="btn btn-secondary">リセット</a>
-        </div>
-    </form>
+                <input class="create-form__item-input" type="text" name="content" value="{{ request('content') }}" placeholder="名前やメールアドレスを入力してください" />
+                <div class="search_gender">
+                    <select name="search_gender" id="search_gender">
+                        <option value="" selected>性別
+                        </option>
+                        <option value="man" {{ request('search_gender') === 'man' ? 'selected' : '' }}>男性</option>
+                        <option value="woman" {{ request('search_gender') === 'woman' ? 'selected' : '' }}>女性</option>
+                        <option value="others" {{ request('search_gender') === 'others' ? 'selected' : '' }}>その他</option>
+                    </select>
+                </div>
+                <div class="search_inquiry_type">
+                    <select name="search_inquiry_type" id="search_inquiry_type">
+                        <option value="" disabled selected>お問い合わせの種類 </option>
+                        <option value="1" {{ request('search_inquiry_type') == '1' ? 'selected' : '' }}>商品のお届けについて</option>
+                        <option value="2" {{ request('search_inquiry_type') == '2' ? 'selected' : '' }}>商品交換について</option>
+                        <option value="3" {{ request('search_inquiry_type') == '3' ? 'selected' : '' }}>商品トラブル</option>
+                        <option value="4" {{ request('search_inquiry_type') == '4' ? 'selected' : '' }}>ショップへのお問い合わせ</option>
+                        <option value="5" {{ request('search_inquiry_type') == '5' ? 'selected' : '' }}>その他</option>
+                    </select>
+                </div>
+                <input class="search_date" type="date" id="created_at" name="created_at" value="{{ request('created_at') }}" placeholder=年/月/日 />
+                <div class="search-form__button">
+                    <button class="submit" type="submit">検索</button>
+                    <a href="{{ route('admin') }}" class="secondary">リセット</a>
+                </div>
+        </form>
+    </div>
 
     @foreach ($categories as $category)
     <div>
@@ -51,12 +47,14 @@
     </div>
     @endforeach
 
-    <a href="{{ route('export.csv') }}" class="btn btn-primary">エクスポート</a>
-
-    <div class="pagination">
-        {{ $contacts->links() }}
+    <div class="export-pagination">
+        <a href="{{ route('export.csv') }}" class="btn btn-primary">エクスポート</a>
+        <div class="pagination-wrapper">
+            <div class="pagination">
+                {{ $contacts->links() }}
+            </div>
+        </div>
     </div>
-
     <div class="result-list">
         <table>
             <thead>
@@ -107,7 +105,7 @@
     </div>
 </div>
 
-<!-- モーダル -->
+
 <div id="detailModal" class="modal" style="display:none;">
     <div class="modal-content">
         <span class="close">&times;</span>
@@ -148,22 +146,20 @@
                         document.getElementById('modal-detail').textContent = data.detail;
 
                         modal.style.display = 'block';
-                        modal.classList.add('show'); // モーダルを表示
+                        modal.classList.add('show');
                     })
                     .catch(error => console.error('Error:', error));
             });
         });
 
-        // モーダルを閉じる処理
         closeModal.addEventListener('click', function() {
-            modal.classList.remove('show'); // モーダルを非表示
+            modal.classList.remove('show');
             modal.style.display = 'none';
         });
 
-        // モーダル外側のクリックで閉じる処理
         window.addEventListener('click', function(event) {
             if (event.target === modal) {
-                modal.classList.remove('show'); // モーダルを非表示
+                modal.classList.remove('show');
                 modal.style.display = 'none';
             }
         });
