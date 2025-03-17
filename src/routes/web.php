@@ -28,5 +28,6 @@ Route::post('/confirm', [ContactController::class, 'confirm'])->name('confirm');
 Route::post('/thanks', [ContactController::class, 'thanks'])->name('thanks');
 
 Route::get('/admin', [CategoryController::class, 'admin'])->name('admin');
+Route::delete('/api/contacts/{id}', [ContactController::class, 'destroy']);
 
 Route::get('/export-csv', [CsvExportController::class, 'export'])->name('export.csv');

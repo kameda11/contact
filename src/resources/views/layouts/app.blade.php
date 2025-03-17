@@ -18,21 +18,38 @@
     <header class="header">
         <div class="header__inner">
             <div class="header-utilities">
-                <a class="header__logo" href="/">
+                <a class="header__logo" href="/login">
                     FashionablyLate
                 </a>
                 <nav>
                     <ul class="header-nav">
                         @if (Auth::check())
-                        <li class="header-nav__item">
-                            <a class="header-nav__link" href="/mypage">マイページ</a>
-                        </li>
+                        @if (Request::is('admin*'))
+                        <!-- Admin Panel Header -->
                         <li class="header-nav__item">
                             <form class="form" action="/logout" method="post">
                                 @csrf
-                                <button class="header-nav__button">ログアウト</button>
+                                <button class="header-nav__button">logout</button>
                             </form>
                         </li>
+                        @else
+                        <!-- Other Pages Header (Login/Register buttons) -->
+                        <li class="header-nav__item">
+                            <a class="header-nav__link" href="/admin">admin</a>
+                        </li>
+                        @endif
+                        @else
+                        @if (Request::is('login'))
+                        <!-- Login Page Header -->
+                        <li class="header-nav__item">
+                            <a class="header-nav__link" href="/register">register</a>
+                        </li>
+                        @elseif (Request::is('register'))
+                        <!-- Register Page Header -->
+                        <li class="header-nav__item">
+                            <a class="header-nav__link" href="/login">login</a>
+                        </li>
+                        @endif
                         @endif
                     </ul>
                 </nav>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Contact;
 use App\Http\Requests\ContactRequest;
+use Illuminate\Http\Request;
 use App\Http\Requests\CategoryRequest;
 use App\Models\Category;
 
@@ -24,26 +25,17 @@ class ContactController extends Controller
 
     public function confirm(ContactRequest $request)
     {
-        // バリデーション
-        $validatedData = $request->validate([
-            'last_name' => 'required',
-            'first_name' => 'required',
-            'gender' => 'required',
-            'email' => 'required|email',
-            'phone1' => 'required',
-            'phone2' => 'required',
-            'phone3' => 'required',
-            'address' => 'required',
-            'building' => 'nullable',
-            'inquiry_type' => 'required',
-            'detail' => 'required|max:120',
-        ]);
+        $data = $request->validated();
 
-        return view('confirm', $validatedData);
+        return view('confirm', compact('data'));
     }
 
-    public function thanks()
+    public function thanks(ContactRequest $request)
     {
+        $data = $request->validated();
+        $data['category_id'] = 1;
+
+        Contact::create($data);
         return view('thanks');
     }
 
@@ -88,6 +80,18 @@ class ContactController extends Controller
                 return 'ショップへのお問い合わせ';
             case '5':
                 return 'その他';
+        }
+    }
+
+    public function destroy($id)
+    {
+        $contact = Contact::find($id);
+
+        if ($contact) {
+            $contact->delete();
+            return response()->json(['message' => '削除されました']);
+        } else {
+            return response()->json(['message' => 'データが見つかりません'], 404);
         }
     }
 }

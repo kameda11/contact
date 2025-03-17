@@ -24,7 +24,7 @@
     flex-direction: row;
     margin: 0 auto;
     align-items: center;
-    width: 70%;
+    width: 80%;
     height: 50px;
     max-width: 100%;
 }
@@ -51,7 +51,7 @@
 .create-form__item-input {
     width: 347.47px;
     height: 50px;
-    background-color: #f4f4f4;
+    background-color: #fbfbfb;
     border: #e3ded9 1px;
 }
 
@@ -272,49 +272,65 @@ svg.w-5.h-5 {
     border-collapse: collapse;
     margin-top: 20px;
     text-align: left;
+    border: 1px solid #e0dfde;
 }
 
 .result-list th,
 .result-list td {
     padding: 12px;
-    border: 1px solid #ddd;
+    border-top: 1px solid #e0dfde;
+    border-bottom: 1px solid #e0dfde;
 }
 
 .result-list th {
-    background-color: #f8f9fa;
-    font-weight: bold;
+    background-color: #8b7969;
+    color: #ffffff;
+    font-weight: 700;
+    font-family: "Inika", serif;
+    font-size: 20px;
+    height: 59px;
 }
 
 .result-list td {
-    background-color: #fff;
+    background-color: #ffffff;
+    color: #8b7969;
+    font-weight: 400;
+    font-size: 20px;
+    height: 59px;
 }
 
 .result-list td button {
     padding: 5px 10px;
-    background-color: #17a2b8;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+    background-color: #f4f4f4;
+    color: #d9c6b5;
+    cursor: pointer 5%;
+    width: 76px;
+    height: 39px;
+    border: 1px solid #d9c6b599;
 }
 
 .result-list td button:hover {
-    background-color: #138496;
+    background-color: #d9c6b599;
 }
 
 /* モーダル全体のスタイル */
 .modal {
     display: none; /* 初期状態で非表示 */
     position: fixed; /* 固定配置 */
-    top: 0;
-    left: 0;
-    width: 100%; /* 画面全体 */
-    height: 100%; /* 画面全体 */
+    top: 50%; /* 画面中央に配置 */
+    left: 50%; /* 画面中央に配置 */
+    transform: translate(-50%, -50%); /* モーダルを中央にシフト */
+    width: 805px; /* 幅805px */
+    height: 858px; /* 高さ858px */
     background-color: rgba(0, 0, 0, 0.5); /* 背景を半透明に */
     z-index: 9999; /* 最前面に表示 */
     justify-content: center;
     align-items: center;
     overflow: hidden; /* モーダル外のスクロールを隠す */
+    margin-top: 100px;
+    margin-bottom: 100px;
+    border: 1px solid #8b7969;
+    box-shadow: 4px 4px 4px rgba(139, 121, 105, 0.25);
 }
 
 /* モーダルが表示されている時のスタイル */
@@ -325,12 +341,15 @@ svg.w-5.h-5 {
 /* モーダルコンテンツのスタイル */
 .modal-content {
     background-color: #fff;
-    padding: 20px;
+    padding: 50px 30px;
     border-radius: 8px;
-    width: 50%;
-    max-width: 600px;
-    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column; /* コンテンツを縦に並べる */
+    gap: 10px; /* 各要素の間にスペースを作る */
     position: relative;
+    overflow-y: auto; /* 長いコンテンツでもスクロール可能に */
 }
 
 /* モーダルの閉じるボタン */
@@ -338,7 +357,53 @@ svg.w-5.h-5 {
     position: absolute;
     top: 10px;
     right: 10px;
-    font-size: 20px;
+    font-size: 30px; /* サイズ調整 */
+    font-weight: 400;
+    font-family: "Inika", serif;
     cursor: pointer;
-    color: #333;
+    color: #8B7969;
+    width: 40px; /* 円のサイズ */
+    height: 40px; /* 円のサイズ */
+    border-radius: 50%; /* 丸くする */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff; /* 背景色 */
+    border: 1px solid #8B7969; /* ボーダー */
+}
+
+/* 詳細項目のスタイル */
+.modal-content p {
+    display: flex;
+    justify-content: space-between; /* 左側にタイトル、右側にデータ */
+    align-items: center;
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: "Inika", serif;
+    color: #8b7969;
+    margin: 15px;
+}
+
+.modal-content p strong {
+    width: 30%; /* タイトルの幅を指定 */
+    text-align: left; /* 左寄せ */
+}
+
+.modal-content p span {
+    width: 65%; /* 結果部分の幅を指定 */
+    text-align: left; /* 左寄せ */
+    word-wrap: break-word; /* 長い文字列が折り返されるようにする */
+}
+
+.delete-btn {
+    padding: 5px 10px;
+    background-color: #ba370d;
+    color: #d9c6b5;
+    cursor: pointer 5%;
+    width: 76px;
+    height: 39px;
+    border: 1px solid #ba370d;
+    margin: auto;
+    color: #ffffff;
 }

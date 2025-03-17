@@ -31,4 +31,5 @@ class ContactFactory extends Factory
             'updated_at' => now(),
         ];
     }
+
 }

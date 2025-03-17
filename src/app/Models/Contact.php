@@ -22,15 +22,11 @@ class Contact extends Model
         'address',
         'building',
         'inquiry_type',
-        'detail'
+        'detail',
+        'category_id'
     ];
 
     protected $hidden = [
         'category_id',
     ];
-
-    public function category()
-    {
-        return $this->belongsTo(Category::class);
-    }
 }

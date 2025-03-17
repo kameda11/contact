@@ -63,6 +63,7 @@
                     <th>性別</th>
                     <th>メールアドレス</th>
                     <th>お問い合わせ内容</th>
+                    <th> </th>
                 </tr>
             </thead>
             <tbody>
@@ -78,6 +79,7 @@
                         その他
                         @endif
                     </td>
+                    <td>{{ $contact->email }}</td>
                     <td>
                         @if($contact->inquiry_type == 1)
                         商品のお届けについて
@@ -109,15 +111,15 @@
 <div id="detailModal" class="modal" style="display:none;">
     <div class="modal-content">
         <span class="close">&times;</span>
-        <h2>お問い合わせ詳細</h2>
-        <p><strong>名前：</strong> <span id="modal-name"></span></p>
-        <p><strong>性別：</strong> <span id="modal-gender"></span></p>
-        <p><strong>メールアドレス：</strong> <span id="modal-email"></span></p>
-        <p><strong>電話番号：</strong> <span id="modal-phone"></span></p>
-        <p><strong>住所：</strong> <span id="modal-address"></span></p>
-        <p><strong>建物名：</strong> <span id="modal-building"></span></p>
-        <p><strong>お問い合わせの種類：</strong> <span id="modal-inquiry-type"></span></p>
-        <p><strong>お問い合わせ内容：</strong> <span id="modal-detail"></span></p>
+        <p><strong>名前</strong> <span id="modal-name"></span></p>
+        <p><strong>性別</strong> <span id="modal-gender"></span></p>
+        <p><strong>メールアドレス</strong> <span id="modal-email"></span></p>
+        <p><strong>電話番号</strong> <span id="modal-phone"></span></p>
+        <p><strong>住所</strong> <span id="modal-address"></span></p>
+        <p><strong>建物名</strong> <span id="modal-building"></span></p>
+        <p><strong>お問い合わせの種類</strong> <span id="modal-inquiry-type"></span></p>
+        <p><strong>お問い合わせ内容</strong> <span id="modal-detail"></span></p>
+        <button id="deleteButton" class="delete-btn">削除</button>
     </div>
 </div>
 
@@ -147,9 +149,36 @@
 
                         modal.style.display = 'block';
                         modal.classList.add('show');
+
+                        deleteButton.setAttribute('data-id', id);
                     })
                     .catch(error => console.error('Error:', error));
             });
+        });
+
+        // 削除ボタンのクリックイベント
+        deleteButton.addEventListener('click', function() {
+            const id = deleteButton.getAttribute('data-id');
+
+            // 削除リクエストを送信
+            fetch(`/api/contacts/${id}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                })
+                .then(response => {
+                    if (response.ok) {
+                        alert('データが削除されました');
+                        modal.style.display = 'none';
+                        modal.classList.remove('show');
+                        // 削除後の処理（例: 一覧から該当の項目を削除）
+                        // 例: location.reload(); でページをリロードして一覧を更新する
+                    } else {
+                        alert('削除に失敗しました');
+                    }
+                })
+                .catch(error => console.error('Error:', error));
         });
 
         closeModal.addEventListener('click', function() {
