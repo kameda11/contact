@@ -52,9 +52,12 @@ class CategoryController extends Controller
         }
 
         $contacts = $query->paginate(7);
+
+        $contacts->appends($request->all());
+
         $categories = Category::all();
 
         return view('admin', compact('contacts', 'categories'));
-    }
 
+    }
 }

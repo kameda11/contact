@@ -29,4 +29,5 @@ class Contact extends Model
     protected $hidden = [
         'category_id',
     ];
+
 }

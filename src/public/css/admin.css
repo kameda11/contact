@@ -19,7 +19,6 @@
 }
 
 .search-form {
-    gap: 30px;
     margin-bottom: 30px;
     flex-direction: row;
     margin: 0 auto;
@@ -27,11 +26,12 @@
     width: 80%;
     height: 50px;
     max-width: 100%;
+    justify-content: space-between;
 }
 
 .search-form__group {
     display: flex;
-    gap: 25px;
+    gap: 35px;
     align-items: center;
     width: 100%;
     margin-bottom: 20px;
@@ -44,7 +44,7 @@
 .search-form__group select,
 .search-form__group button {
     height: 50px;
-    padding: 5px 10px;
+    padding: 5px 25px;
     border: 1px #e3ded9;
 }
 
@@ -56,7 +56,7 @@
 }
 
 .search_gender {
-    width: 102.48px;
+    width: auto;
     height: 50px;
     position: relative;
 }
@@ -103,7 +103,7 @@
 }
 
 .search_inquiry_type {
-    width: 223.04px;
+    width: auto;
     height: 50px;
     position: relative;
 }
@@ -122,7 +122,7 @@
 }
 
 .search_date input {
-    width: 148.87px;
+    width: 148px;
     height: 50px;
     padding-right: 30px;
     appearance: none;
@@ -135,6 +135,18 @@
     color: #8b7969;
     background-color: #f4f4f4;
     position: relative;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    height: auto;
+    background: transparent;
+    z-index: 1;
 }
 
 .search_date::after {
@@ -215,22 +227,77 @@
     margin-bottom: 20px;
 }
 
-/* ページネーション */
-/* 「« 前 次 »」を非表示にする */
-.pagination-wrapper .page-item:first-child,
-.pagination-wrapper .page-item:last-child {
-    display: none;
+/* ページネーションのラッパー */
+.pagination-wrapper {
+    text-align: center; /* 中央揃え */
+    height: 219px;
+    height: 33px;
+    border-radius: 8px; /* 丸みを追加 */
+    overflow: hidden;
+    border: 1px solid #e0dfde;
 }
 
-/* 「Showing 15 to 21 of 35 results」を非表示にする */
-.pagination-wrapper .text-sm.text-gray-700.leading-5 {
-    display: none;
+/* ページネーションのリスト */
+.pagination {
+    display: inline-flex; /* 横並びにする */
+    justify-content: center; /* 水平方向に中央寄せ */
+    padding: 0;
+    list-style: none;
+    margin: 0;
+    font-family: "Inika", serif;
+    font-weight: 400;
+    font-size: 18px;
 }
 
-svg.w-5.h-5 {
-    /*paginateメソッドの矢印の大きさ調整のために追加*/
-    width: 30px;
-    height: 30px;
+/* ページアイテム */
+.pagination .page-item {
+    display: block; /* 各ページ番号をブロックとして扱う */
+}
+
+/* ページリンク */
+.pagination .page-link {
+    display: block;
+    border-right: 1px solid #e0dfde;
+    background-color: #fff;
+    color: #8b7969;
+    text-decoration: none;
+    font-size: 16px;
+    text-align: center;
+    height: 31px;
+}
+
+/* ホバー時のリンクの背景色 */
+.pagination .page-link:hover {
+    background-color: #ffffff;
+}
+
+/* アクティブなページのスタイル */
+.pagination .page-item.active .page-link {
+    background-color: #8b7969;
+    color: #ffffff;
+    border-color: #8b7969;
+}
+
+/* 無効なページのスタイル */
+.pagination .page-item.disabled .page-link {
+    background-color: #ffffff;
+    color: #8b7969;
+    border-color: #ffffff;
+}
+
+/* 前・次のリンク */
+.pagination .page-link {
+    padding: 0 15px;
+    font-weight: 400;
+    font-size: 18px;
+}
+
+/* 「‹」と「›」のリンク */
+.pagination .page-item:first-child .page-link,
+.pagination .page-item:last-child .page-link {
+    padding: 0 15px;
+    font-weight: 400;
+    font-size: 18px;
 }
 
 /* カテゴリリスト */
@@ -361,7 +428,7 @@ svg.w-5.h-5 {
     font-weight: 400;
     font-family: "Inika", serif;
     cursor: pointer;
-    color: #8B7969;
+    color: #8b7969;
     width: 40px; /* 円のサイズ */
     height: 40px; /* 円のサイズ */
     border-radius: 50%; /* 丸くする */
@@ -369,7 +436,7 @@ svg.w-5.h-5 {
     justify-content: center;
     align-items: center;
     background-color: #ffffff; /* 背景色 */
-    border: 1px solid #8B7969; /* ボーダー */
+    border: 1px solid #8b7969; /* ボーダー */
 }
 
 /* 詳細項目のスタイル */

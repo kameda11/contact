@@ -89,11 +89,11 @@ textarea  {
     font-size: 18px;
 }
 
-.radio-btn {
+.radio__btn {
+    appearance: none;
     color: white;
-    padding: 10px 20px;
     border: none;
-    border-radius: 5px;
+    border-radius: 50%;
     cursor: pointer;
     font-size: 16px;
     width: 300px;
@@ -101,13 +101,15 @@ textarea  {
     margin: 0 auto;
     width: 20px;
     height: 20px;
+    border: 1px solid #8b7969;
 }
 
-.radio-btn:checked {
+.radio__btn:checked {
     accent-color: #8b7969;
     background-color: #8b7969;
     border: #8b7969 1px solid;
 }
+
 
 .form__email,
 .form__address,

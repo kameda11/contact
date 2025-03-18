@@ -16,8 +16,8 @@
                 <input class="create-form__item-input" type="text" name="content" value="{{ request('content') }}" placeholder="名前やメールアドレスを入力してください" />
                 <div class="search_gender">
                     <select name="search_gender" id="search_gender">
-                        <option value="" selected>性別
-                        </option>
+                        <option value="" disabled selected>性別</option>
+                        <option value="all" {{ request('search_gender') === 'all' ? 'selected' : '' }}>すべて</option>
                         <option value="man" {{ request('search_gender') === 'man' ? 'selected' : '' }}>男性</option>
                         <option value="woman" {{ request('search_gender') === 'woman' ? 'selected' : '' }}>女性</option>
                         <option value="others" {{ request('search_gender') === 'others' ? 'selected' : '' }}>その他</option>
@@ -51,7 +51,7 @@
         <a href="{{ route('export.csv') }}" class="btn btn-primary">エクスポート</a>
         <div class="pagination-wrapper">
             <div class="pagination">
-                {{ $contacts->links() }}
+                {{ $contacts->links('vendor.pagination.bootstrap-4') }}
             </div>
         </div>
     </div>
