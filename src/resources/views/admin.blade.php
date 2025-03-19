@@ -48,7 +48,7 @@
     @endforeach
 
     <div class="export-pagination">
-        <a href="{{ route('export.csv') }}" class="btn btn-primary">エクスポート</a>
+        <a href="{{ route('export.csv', request()->query()) }}" class="btn btn-primary">エクスポート</a>
         <div class="pagination-wrapper">
             <div class="pagination">
                 {{ $contacts->links('vendor.pagination.bootstrap-4') }}
@@ -69,7 +69,7 @@
             <tbody>
                 @forelse ($contacts as $contact)
                 <tr>
-                    <td>{{ $contact->last_name }} {{ $contact->first_name }}</td>
+                    <td>{{ $contact->first_name }} {{ $contact->last_name }}</td>
                     <td>
                         @if($contact->gender == '1')
                         男性
@@ -156,11 +156,9 @@
             });
         });
 
-        // 削除ボタンのクリックイベント
         deleteButton.addEventListener('click', function() {
             const id = deleteButton.getAttribute('data-id');
 
-            // 削除リクエストを送信
             fetch(`/api/contacts/${id}`, {
                     method: 'DELETE',
                     headers: {
@@ -172,8 +170,7 @@
                         alert('データが削除されました');
                         modal.style.display = 'none';
                         modal.classList.remove('show');
-                        // 削除後の処理（例: 一覧から該当の項目を削除）
-                        // 例: location.reload(); でページをリロードして一覧を更新する
+
                     } else {
                         alert('削除に失敗しました');
                     }

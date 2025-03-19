@@ -57,7 +57,7 @@
 .form__address input,
 .form__building input,
 .form__inquiry-type select,
-textarea  {
+textarea {
     padding: 10px;
     background-color: #f4f4f4;
     border: none;
@@ -110,7 +110,6 @@ textarea  {
     border: #8b7969 1px solid;
 }
 
-
 .form__email,
 .form__address,
 .form__building {
@@ -159,8 +158,8 @@ select {
     appearance: none;
     border: 1px solid #ffffff;
     border-radius: 5px;
-    background-color: #F4F4F4;
-    color: #BEB1A6;
+    background-color: #f4f4f4;
+    color: #beb1a6;
     cursor: pointer;
     width: 331.68px;
     height: 38px;
@@ -215,7 +214,7 @@ textarea {
 }
 
 .form__button-submit {
-    background-color: #82756A;
+    background-color: #82756a;
     color: #fff;
     border: none;
     padding: 10px 40px;
@@ -224,5 +223,5 @@ textarea {
 }
 
 .form__button-submit:hover {
-    background-color: #82756A;
+    background-color: #82756a;
 }

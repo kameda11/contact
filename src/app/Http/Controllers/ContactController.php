@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Contact;
 use App\Http\Requests\ContactRequest;
 use Illuminate\Http\Request;
-use App\Http\Requests\CategoryRequest;
-use App\Models\Category;
 
 class ContactController extends Controller
 {
@@ -15,19 +13,16 @@ class ContactController extends Controller
         return view('index');
     }
 
-    /*public function confirm(ContactRequest $request)
-    {
-        $contact = $request->all();
-
-        $validated = $request->validated();
-        return view('confirm', compact('validated'));
-    }*/
-
     public function confirm(ContactRequest $request)
     {
-        $data = $request->validated();
-
+        $data = $request->all();
         return view('confirm', compact('data'));
+    }
+
+    public function store(ContactRequest $request)
+    {
+        Contact::create($request->validated());
+        return redirect()->route('thanks')->with('success', 'お問い合わせが送信されました。');
     }
 
     public function thanks(ContactRequest $request)

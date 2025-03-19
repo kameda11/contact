@@ -41,11 +41,11 @@
     font-size: 18px;
     padding: 10px 20px;
     color: #fff;
-    background-color: #82756A;
+    background-color: #82756a;
     text-decoration: none;
     z-index: 2;
 }
 
 .form__button-back:hover {
-    background-color: #82756A;
+    background-color: #82756a;
 }

@@ -7,10 +7,51 @@ use App\Models\Contact;
 
 class CsvExportController extends Controller
 {
-    public function export()
+    public function export(Request $request)
     {
+        $query = Contact::query();
+
+        if ($request->filled('content')) {
+            $query->where(function ($q) use ($request) {
+                $q->where('first_name', $request->content)
+                    ->orWhere('last_name', $request->content)
+                    ->orWhere('email', $request->content)
+                    ->orWhere('first_name', 'like', '%' . $request->content . '%')
+                    ->orWhere('last_name', 'like', '%' . $request->content . '%')
+                    ->orWhere('email', 'like', '%' . $request->content . '%');
+            });
+        }
+
+        if ($request->filled('search_gender')) {
+            $genderValue = null;
+            switch ($request->search_gender) {
+                case 'man':
+                    $genderValue = '1';
+                    break;
+                case 'woman':
+                    $genderValue = '2';
+                    break;
+                case 'others':
+                    $genderValue = '3';
+                    break;
+            }
+
+            if ($genderValue) {
+                $query->where('gender', $genderValue);
+            }
+        }
+
+        if ($request->filled('search_inquiry_type')) {
+            $query->where('inquiry_type', $request->search_inquiry_type);
+        }
+
+        if ($request->filled('created_at')) {
+            $query->whereDate('created_at', $request->created_at);
+        }
+
+        $contacts = $query->with('category')->get();
+
         $fileName = 'contacts_export.csv';
-        $contacts = Contact::with('category')->get();
 
         $headers = [
             "Content-type" => "text/csv",
@@ -46,7 +87,7 @@ class CsvExportController extends Controller
 
                 $row = [
                     $contact->id,
-                    $contact->category->name, // カテゴリ名を取得
+                    $contact->category->name,
                     $contact->last_name,
                     $contact->first_name,
                     $gender,

@@ -25,7 +25,6 @@
                     <ul class="header-nav">
                         @if (Auth::check())
                         @if (Request::is('admin*'))
-                        <!-- Admin Panel Header -->
                         <li class="header-nav__item">
                             <form class="form" action="/logout" method="post">
                                 @csrf
@@ -33,19 +32,16 @@
                             </form>
                         </li>
                         @else
-                        <!-- Other Pages Header (Login/Register buttons) -->
                         <li class="header-nav__item">
                             <a class="header-nav__link" href="/admin">admin</a>
                         </li>
                         @endif
                         @else
                         @if (Request::is('login'))
-                        <!-- Login Page Header -->
                         <li class="header-nav__item">
                             <a class="header-nav__link" href="/register">register</a>
                         </li>
                         @elseif (Request::is('register'))
-                        <!-- Register Page Header -->
                         <li class="header-nav__item">
                             <a class="header-nav__link" href="/login">login</a>
                         </li>

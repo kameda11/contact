@@ -28,11 +28,12 @@ main {
     color: #8b7969;
     text-decoration: none;
     display: flex;
-    align-items: center; /* Vertically center logo */
+    align-items: center;
     margin: 0 auto;
     justify-content: center;
     position: relative;
     font-family: "Inika", serif;
+    padding-left: 180px;
 }
 
 .header-nav {

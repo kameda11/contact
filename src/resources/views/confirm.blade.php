@@ -16,9 +16,9 @@
             <div class="form__group">
                 <div class="form__group-title">お名前</div>
                 <div class="form__group-content">
-                    <p>{{ $data['last_name'] }} {{ $data['first_name'] }}</p>
-                        <input type="hidden" name="last_name" value="{{ $data['last_name'] }}">
-                        <input type="hidden" name="first_name" value="{{ $data['first_name'] }}">
+                    <p>{{ $data['first_name'] }} {{ $data['last_name'] }}</p>
+                    <input type="hidden" name="first_name" value="{{ $data['first_name'] }}">
+                    <input type="hidden" name="last_name" value="{{ $data['last_name'] }}">
                 </div>
             </div>
 

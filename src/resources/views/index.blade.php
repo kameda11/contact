@@ -26,16 +26,16 @@
                 <span class="form__label--required">※</span>
             </div>
             <div class="form__group-content">
-                <div class="form__last-name">
-                    <input type="text" name="last_name" id="last_name" value="{{ old('last_name') }}" placeholder="例: 山田" required>
+                <div class="form__first-name">
+                    <input type="text" name="first_name" id="first_name" value="{{ old('first_name') }}" placeholder="例: 山田" required>
                     <div class="form__error">
-                        @error('last_name')<p>{{ $message }}</p>@enderror
+                        @error('first_name')<p> {{$errors->first('first_name')}}</p>@enderror
                     </div>
                 </div>
                 <div class="form__first-name">
-                    <input type="text" name="first_name" id="first_name" value="{{ old('first_name') }}" placeholder="例: 太郎" required>
+                    <input type="text" name="last_name" id="last_name" value="{{ old('last_name') }}" placeholder="例: 太郎" required>
                     <div class="form__error">
-                        @error('first_name')<p>{{ $message }}</p>@enderror
+                        @error('last_name')<p> {{$errors->first('last_name')}}</p>@enderror
                     </div>
                 </div>
             </div>
@@ -52,7 +52,7 @@
                     <input type="radio" class="radio__btn" name="gender" value="3" {{ old('gender') == '3' ? 'checked' : '' }}> <label>その他</label>
                 </div>
                 <div class="form__error">
-                    @error('gender')<p>{{ $message }}</p>@enderror
+                    @error('gender')<p> {{$errors->first('gender')}}</p>@enderror
                 </div>
             </div>
         </div>
@@ -66,7 +66,7 @@
                     <input type="email" name="email" value="{{ old('email') }}" placeholder="例: test@example.com" required />
                 </div>
                 <div class="form__error">
-                    @error('email')<p>{{ $message }}</p>@enderror
+                    @error('email')<p> {{$errors->first('email')}}</p>@enderror
                 </div>
             </div>
         </div>
@@ -79,19 +79,19 @@
                 <div class="form__phone">
                     <input type="tel" name="phone1" id="phone1" value="{{ old('phone1') }}" placeholder="090" required />
                     <div class="form__error">
-                        @error('phone1')<p>{{ $message }}</p>@enderror
+                        @error('phone1')<p>{{$errors->first('phone1')}}</p>@enderror
                     </div>
                     <span>-</span>
 
                     <input type="tel" name="phone2" id="phone2" value="{{ old('phone2') }}" placeholder="1234" required />
                     <div class="form__error">
-                        @error('phone2')<p>{{ $message }}</p>@enderror
+                        @error('phone2')<p>{{$errors->first('phone2')}}</p>@enderror
                     </div>
                     <span>-</span>
 
                     <input type="tel" name="phone3" id="phone3" value="{{ old('phone3') }}" placeholder="5678" required />
                     <div class="form__error">
-                        @error('phone3')<p>{{ $message }}</p>@enderror
+                        @error('phone3')<p>{{$errors->first('phone3')}}</p>@enderror
                     </div>
                 </div>
             </div>
@@ -106,7 +106,7 @@
                     <input type="text" name="address" placeholder="例: 東京都渋谷区千駄ヶ谷1-2-3" value="{{ old('address') }}" required />
                 </div>
                 <div class="form__error">
-                    @error('address')<p>{{ $message }}</p>@enderror
+                    @error('address')<p>{{$errors->first('address')}}</p>@enderror
                 </div>
             </div>
         </div>
@@ -137,7 +137,7 @@
                     </select>
                 </div>
                 <div class="form__error">
-                    @error('inquiry_type')<p>{{ $message }}</p>@enderror
+                    @error('inquiry_type')<p>{{$errors->first('inquiry_type')}}</p>@enderror
                 </div>
             </div>
         </div>
@@ -151,7 +151,7 @@
                     <textarea name="detail" placeholder="お問い合わせ内容をご記載ください" required>{{ old('detail') }}</textarea>
                 </div>
                 <div class="form__error">
-                    @error('detail')<p>{{ $message }}</p>@enderror
+                    @error('detail')<p>{{$errors->first('detail')}}</p>@enderror
                 </div>
             </div>
         </div>
