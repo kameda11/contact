@@ -21,7 +21,7 @@ class ContactRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules(): array
     {
         return [
             'first_name' => 'required',
@@ -37,7 +37,7 @@ class ContactRequest extends FormRequest
         ];
     }
 
-    public function messages()
+    public function messages(): array
     {
         return [
             'first_name.required' => '姓を入力してください',

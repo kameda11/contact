@@ -203,6 +203,10 @@ textarea {
     padding-top: 10px;
 }
 
+.form__detail textarea {
+    resize: none;
+}
+
 .form__detail {
     font-weight: 400;
     font-size: 14px;

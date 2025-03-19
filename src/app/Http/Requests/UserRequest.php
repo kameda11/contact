@@ -26,17 +26,17 @@ class UserRequest extends FormRequest
         return [
             'name' => 'required',
             'email' => 'required|email',
-            'password' => 'nullable|min:8',
+            'password' => 'required',
         ];
     }
 
     public function messages()
     {
         return [
-            'name.required' => 'メールアドレスは必須です。',
-            'email.required' => 'メールアドレスは必須です。',
-            'email.email' => '正しいメールアドレスを入力してください。',
-            'password.min' => 'パスワードは8文字以上で入力してください。',
+            'name.required' => 'お名前を入力してください',
+            'email.required' => 'メールアドレスを入力してください',
+            'email.email' => 'メールアドレスは「ユーザー名@ドメイン」形式で入力してください',
+            'password.required' => '`パスワードを入力してください`',
         ];
     }
 }
